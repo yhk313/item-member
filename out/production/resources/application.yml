@@ -1,0 +1,29 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/jpashop?allowPublicKeyRetrieval=true&useUnicode=true&useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: root
+#  password=
+
+  jpa:
+    hibernate:
+      ddl-auto: none #초기 한번만 cerate로 하고 none으로 변경할 것
+    properties:
+      hibernate:
+       show-sql: true
+       format_sql: true
+  messages:
+    basename: messages
+    encoding: UTF-8
+  # project \uC7AC\uC2DC\uC791 @Entity domain ? \uD14C\uC774\uBE14 ddl - create table.....\uC790\uB3D9\uC0DD\uC131
+
+
+  # session : expire \uC815\uBCF4 == 60 , 180 ...
+server:
+  servlet:
+   session:
+     timeout: 60
+     tracking-modes: cookie
+  # session tracking mode = cookie \uB85C \uC124\uC815
+

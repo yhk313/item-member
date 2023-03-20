@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div><h1>주문 등록</h1></div>
+<form action="/order/add" method="post">
+    <div>
+        <label for= "member">주문회원</label>
+        <input type="text" id="member" name="member" th:value= "${member.name}" readonly></input>
+        <input type="text" name="id" th:value= "${member.id}" hidden>
+    </div>
+    <div>
+        <label for="item">상품선택</label>
+        <select id = "item" name = "itemId">
+            <option value="">상품선택</option>
+            <option th:each = "item:${items}"
+                    th:value="${item.id}"
+                    th:text = "${item.itemName}"/>
+        </select>
+    </div>
+    <div>
+        <label for = "orderQuantity">주문수량</label>
+        <input id="orderQuantity" name ="orderQuantity" placeholder="수량을 입력해주세요">
+    </div>
+
+
+    <div>
+        <button type="submit">주문등록</button>
+<!--       <button type="button" th:onclick="|location.href='@{/order/cancel}'|">취소</button>&ndash;&gt;-->
+    </div>
+</form>
+</body>
+</html>
